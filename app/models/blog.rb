@@ -11,7 +11,7 @@ class Blog < ApplicationRecord
 
   scope :search, lambda { |term|
     sanitized_term = sanitize_sql_like(term.to_s)
-    where("title LIKE ? OR content LIKE ?", "%#{sanitized_term}%", "%#{sanitized_term}%")
+    where('title LIKE ? OR content LIKE ?', "%#{sanitized_term}%", "%#{sanitized_term}%")
   }
 
   scope :default_order, -> { order(id: :desc) }
