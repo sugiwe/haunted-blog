@@ -8,7 +8,7 @@ class Api::LikingUsersController < ApplicationController
     @destroy_path = my_liking ? api_blog_liking_path(blog, my_liking, format: :json) : nil
 
     render json: {
-      users: @users.map { |user| { nickname: user.nickname } },
+      users: @users.map(&:as_liking_user_json),
       destroy_path: @destroy_path
     }
   end
