@@ -7,10 +7,4 @@ class User < ApplicationRecord
   has_many :likings, dependent: :destroy
 
   validates :nickname, uniqueness: true
-
-  def as_liking_user_json
-    {
-      nickname:
-    }
-  end
 end
