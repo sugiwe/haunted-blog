@@ -49,7 +49,7 @@ class BlogsController < ApplicationController
   end
 
   def authorize_blog
-    raise ActiveRecord::RecordNotFound if @blog.user != current_user
+    Blog.find_by!(id: @blog.id, user: current_user)
   end
 
   def blog_params
